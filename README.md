@@ -6,9 +6,9 @@ first tutorial onward.
 
 ## Why it's needed
 
-Splatoon has an in-game *Motion Controls: Off* option, but it's only reachable **after** the
+Splatoon has an in-game _Motion Controls: Off_ option, but it's only reachable **after** the
 opening tutorial. The tutorial forces gyro aiming. Without a gyro the camera points at the floor
-and the game blocks you with *"Face forward and slowly tilt the GamePad upward."*
+and the game blocks you with _"Face forward and slowly tilt the GamePad upward."_
 
 This patch forces the game's own "motion controls off" mode everywhere, so:
 
@@ -19,11 +19,11 @@ This patch forces the game's own "motion controls off" mode everywhere, so:
 
 ## Compatibility
 
-| Game build | Cemu module checksum | Status |
-|---|---|---|
-| v272 (2.12.0) – EUR / USA / JPN | `0xF7A78809` | ✅ tested on Cemu 2.6 (Windows) |
-| v288 (2.12.1) | `0x659C782E` | ❌ not supported (code layout differs; needs that RPX to port) |
-| older updates | – | ❌ not supported |
+| Game build                      | Cemu module checksum | Status                                                         |
+| ------------------------------- | -------------------- | -------------------------------------------------------------- |
+| v272 (2.12.0) – EUR / USA / JPN | `0xF7A78809`         | ✅ tested on Cemu 2.6 (Windows)                                |
+| v288 (2.12.1)                   | `0x659C782E`         | ❌ not supported (code layout differs; needs that RPX to port) |
+| older updates                   | –                    | ❌ not supported                                               |
 
 Cemu applies the patch only when the checksum matches, so it can't affect any other build.
 Graphic-pack patches are applied by Cemu's shared core, so the same pack works on Cemu Android.
@@ -31,6 +31,7 @@ Graphic-pack patches are applied by Cemu's shared core, so the same pack works o
 ## Install
 
 ### Android (Cemu fork by SSimco)
+
 1. Copy the `Splatoon_StickAim` folder (unzip `Splatoon_StickAim.zip`) into
    `/storage/emulated/0/Android/data/info.cemu.cemu/files/graphicPacks/`
    so you get `.../graphicPacks/Splatoon_StickAim/rules.txt`.
@@ -41,16 +42,17 @@ Graphic-pack patches are applied by Cemu's shared core, so the same pack works o
 3. Start the game.
 
 ### Windows
+
 1. Copy `graphicPacks/Splatoon_StickAim` into `<Cemu folder>/graphicPacks/`
    (`File → Open Cemu folder` in Cemu shows where that is).
-2. Right-click Splatoon → *Edit graphic packs* → Splatoon → Mods → tick **Stick Aim (No Motion Controls)**.
+2. Right-click Splatoon → _Edit graphic packs_ → Splatoon → Mods → tick **Stick Aim (No Motion Controls)**.
 3. Check `log.txt` for `Applying patch group 'Splatoon_StickAim_v272'`.
 
 ## Tutorial notes
 
 - In the first step ("Shoot the balloons!") the game locks the player's input and expects gyro
   aiming. The patch lets the right stick aim there (left-stick movement stays locked, as intended).
-- If you aim too far down, the tutorial shows *"Face forward and slowly tilt the GamePad upward"*.
+- If you aim too far down, the tutorial shows _"Face forward and slowly tilt the GamePad upward"_.
   Push the right stick **up** and the hint goes away.
 
 ## How it works

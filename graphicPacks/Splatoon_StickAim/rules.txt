@@ -1,0 +1,6 @@
+[Definition]
+titleIds = 0005000010176900,0005000010176A00,0005000010162B00
+name = Stick Aim (No Motion Controls)
+path = "Splatoon/Mods/Stick Aim (No Motion Controls)"
+description = Turns off GamePad motion (gyro) aiming everywhere, including the opening tutorial, so the right stick controls the camera and aim on both axes (left/right and up/down).|Works without any motion sensor (Cemu Android / Windows).|The in-game "Motion Controls" option is ignored while this pack is enabled. Use the in-game camera sensitivity slider to adjust stick speed.|Tutorial: if the "tilt the GamePad upward" hint appears, push the right stick up.|Requires Splatoon v272 (2.12.0).
+version = 7

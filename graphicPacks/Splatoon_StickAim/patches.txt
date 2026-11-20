@@ -1,0 +1,23 @@
+; Splatoon - Stick Aim (No Motion Controls)
+;
+; 1) The game asks one function whether the GamePad gyro should drive the camera:
+;      bool Ctrl::isGyroEnabled(this)            ; 0x02036DE8 in v272
+;          return (this->mode == 0 || this->force) && this->options->EnableGyro;
+;    (options = copy of the save-data "CtrlOption_*" block: +0 CameraSpeed, +4 ReverseUD,
+;     +5 ReverseLR, +6 EnableGyro). The player camera (0x0265E7EC) switches to its
+;    stick-only mode when this returns false - the same path as the in-game
+;    "Motion Controls: Off" option, but now also in the tutorial.
+;
+; 2) Player::calcCameraStick (0x02635254) reads the right stick, but first checks
+;    Player::isInputLocked (0x02634F48 = player->flags & 0x40) and zeroes the stick
+;    input when set. The tutorial's first "shoot the balloons" step sets that lock,
+;    expecting you to aim with the gyro (the gyro path ignores the lock). We skip the
+;    check here so the right stick behaves like the gyro would. Movement (left stick)
+;    keeps its own lock check.
+
+[Splatoon_StickAim_v272]
+moduleMatches = 0xF7A78809 ; Gambit.rpx v272 (2.12.0), EUR/USA/JPN
+
+0x02036DE8 = li r3, 0 ; isGyroEnabled() -> always false
+0x02036DEC = blr
+0x02635284 = li r3, 0 ; calcCameraStick: ignore input lock (was: bl isInputLocked)
